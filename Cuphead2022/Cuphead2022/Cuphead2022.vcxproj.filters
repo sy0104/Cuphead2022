@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="00. MainGame">
+      <UniqueIdentifier>{3f818634-1809-47da-80ac-8531bcc66f75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Object">
+      <UniqueIdentifier>{953a8db8-7a18-4ac0-9b32-17868d027dd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02. Bitmap">
+      <UniqueIdentifier>{ff391898-c66b-4c6a-8026-15eef15bf03f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene">
+      <UniqueIdentifier>{86484978-26e9-418c-a24d-7fd19313e788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager">
+      <UniqueIdentifier>{48caa487-99d6-4b6b-ae83-37b3da927354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="99. Default">
+      <UniqueIdentifier>{878b6bc0-ad51-4ca4-8375-fc50dc234bf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\00. CollisionManager">
+      <UniqueIdentifier>{c7c8d45f-b618-47a0-ae86-7dc48a1c6896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\01. ObjectManager">
+      <UniqueIdentifier>{6a00ebf8-5f54-4ec7-b96a-fc8445911dc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\02. KeyManager">
+      <UniqueIdentifier>{94289c5a-bc4f-4dd2-9cae-e0f9df7c36f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\03. ScrollManager">
+      <UniqueIdentifier>{ba5bce97-4b2b-4980-b495-f79a09cf3670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\04. BitmapManager">
+      <UniqueIdentifier>{7df58dde-b444-4420-8d2c-d4f142b610d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\05. SceneManager">
+      <UniqueIdentifier>{fdd3ea92-3648-4cf1-932a-3bce47aaba20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\06. SoundManager">
+      <UniqueIdentifier>{2f45302a-6fde-4299-873b-c825177d9ade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\07. TimeManager">
+      <UniqueIdentifier>{41a31064-ea50-4aab-b754-9563e2db5c87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\08. FrameManager">
+      <UniqueIdentifier>{2aae8c9c-8431-4cb1-bc63-3f866f8d3d31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\00. Logo">
+      <UniqueIdentifier>{de222a1d-59f7-4957-9690-c92d0b2acce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\01. Map">
+      <UniqueIdentifier>{145bbb19-682a-4dbb-98e2-95f8681bda85}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cuphead2022.h">
+      <Filter>99. Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99. Default</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>99. Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>99. Default</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>00. MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>01. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="MyBitmap.h">
+      <Filter>02. Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>03. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BitmapManager.h">
+      <Filter>04. Manager\04. BitmapManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>04. Manager\00. CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>04. Manager\02. KeyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>04. Manager\01. ObjectManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>04. Manager\05. SceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollManager.h">
+      <Filter>04. Manager\03. ScrollManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>04. Manager\06. SoundManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>04. Manager\07. TimeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameManager.h">
+      <Filter>04. Manager\08. FrameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MapScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Cuphead2022.ico">
+      <Filter>99. Default</Filter>
+    </Image>
+    <Image Include="small.ico">
+      <Filter>99. Default</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Cuphead2022.rc">
+      <Filter>99. Default</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Cuphead2022.cpp">
+      <Filter>99. Default</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>00. MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="MyBitmap.cpp">
+      <Filter>02. Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>01. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99. Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>03. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapManager.cpp">
+      <Filter>04. Manager\04. BitmapManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>04. Manager\00. CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>04. Manager\02. KeyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>04. Manager\01. ObjectManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>04. Manager\05. SceneManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollManager.cpp">
+      <Filter>04. Manager\03. ScrollManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>04. Manager\06. SoundManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>04. Manager\07. TimeManager</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameManager.cpp">
+      <Filter>04. Manager\08. FrameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MapScene.cpp" />
+  </ItemGroup>
+</Project>
