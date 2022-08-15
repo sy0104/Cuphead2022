@@ -40,6 +40,7 @@ protected:
 
 	bool	_isDead;
 	float	_fAngle;
+	float	_fSpeed;
 
 	TCHAR* _pFrameKey;
 

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "SceneManager.h"
 #include "MapScene.h"
+#include "TestScene.h"
 
 IMPLEMENT_SINGLETON(SceneManager);
 
@@ -44,6 +45,9 @@ void SceneManager::SceneChange(SCENEID eID)
 		{
 		case MAP:
 			_pScene = new MapScene;
+			break;
+		case TEST:
+			_pScene = new TestScene;
 			break;
 		}
 		_pScene->Initialize();

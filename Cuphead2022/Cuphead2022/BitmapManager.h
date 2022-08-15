@@ -14,7 +14,7 @@ private:
 	~BitmapManager();
 
 public:
-	void InsertBitmap(const TCHAR* filePath, const TCHAR* imageKey);
+	void InsertBmp(const TCHAR* filePath, const TCHAR* imageKey);
 	HDC FindImage(const TCHAR* imageKey);
 	void Release();
 

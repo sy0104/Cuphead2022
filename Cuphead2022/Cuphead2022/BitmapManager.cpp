@@ -2,6 +2,8 @@
 #include "BitmapManager.h"
 #include "MyBitmap.h"
 
+IMPLEMENT_SINGLETON(BitmapManager);
+
 BitmapManager::BitmapManager()
 {
 }
@@ -11,7 +13,7 @@ BitmapManager::~BitmapManager()
 	Release();
 }
 
-void BitmapManager::InsertBitmap(const TCHAR* filePath, const TCHAR* imageKey)
+void BitmapManager::InsertBmp(const TCHAR* filePath, const TCHAR* imageKey)
 {
 	auto&& iter = find_if(_mapBit.begin(), _mapBit.end(), CStrCmp(imageKey));
 
