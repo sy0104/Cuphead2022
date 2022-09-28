@@ -22,12 +22,18 @@ void Player::Initialize()
     _tInfo.fX = 200.f;
     _tInfo.fY = 550.f;
     _tInfo.iCX = 100;
-    _tInfo.iCY = 150;
+    _tInfo.iCY = 155;
 
     _fSpeed = 8.f;
 
-    _tFrame.dFrameStart = 0;
-    _tFrame.dFrameEnd = 6;
+    _tFrame.iFrameStart = 0;
+    _tFrame.iFrameEnd = 7;
+    _tFrame.iFrameScene = 0;
+    _tFrame.dwFrameSpeed = 80;
+    _tFrame.dwFrameTime = GetTickCount64();
+    _pFrameKey = (TCHAR*)(L"Player_Idle");
+
+    _eGroupID = GROUPID::OBJECT;
 }
 
 int Player::Update()
@@ -59,19 +65,19 @@ void Player::Render(HDC dc)
             , _tRect.left, _tRect.top
             , _tInfo.iCX, _tInfo.iCY
             , hMemDC
-            , _tFrame.dFrameStart * 164, _tFrame.dFrameScene * 80
-            , 164, 80
-            , RGB(40, 40, 40));
+            , _tFrame.iFrameStart * 100, _tFrame.iFrameScene * 155
+            , 100, 155
+            , RGB(70, 70, 70));
     }
 
     else
     {
         StretchBlt(hStretch
             , 0, 0
-            , 155, 175
+            , 100, 155
             , hMemDC
-            , _tFrame.dFrameStart * 155 + 155, _tFrame.dFrameScene * 175
-            , -155, 175
+            , _tFrame.iFrameStart * 100 + 100, _tFrame.iFrameScene * 155
+            , -100, 155
             , SRCCOPY);
 
         GdiTransparentBlt(dc
@@ -79,8 +85,8 @@ void Player::Render(HDC dc)
             , _tInfo.iCX, _tInfo.iCY
             , hStretch
             , 0, 0
-            , 155, 175
-            , RGB(40, 40, 40));
+            , 100, 155
+            , RGB(70, 70, 70));
 
     }
 }
@@ -100,10 +106,10 @@ void Player::SceneChange()
         switch (_eCurScene)
         {
         case STATE::IDLE:
-            _tFrame.dFrameStart = 0;
-            _tFrame.dFrameEnd = 4;
-            _tFrame.dFrameScene = 0;
-            _tFrame.dwFrameSpeed = 150;
+            _tFrame.iFrameStart = 0;
+            _tFrame.iFrameEnd = 7;
+            _tFrame.iFrameScene = 0;
+            _tFrame.dwFrameSpeed = 100;
             break;
         case STATE::WALK:
 

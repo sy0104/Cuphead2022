@@ -7,7 +7,6 @@
 #include "ScrollManager.h"
 #include "SoundManager.h"
 #include "TimeManager.h"
-#include "FrameManager.h"
 
 MainGame::MainGame()
 {
@@ -21,13 +20,13 @@ MainGame::~MainGame()
 void MainGame::Initialize()
 {
 	//SoundManager::Get_Instance()->Initialize();
-	BitmapManager::GetInstance()->InsertBitmap(L"../Image/Background/Background.bmp", L"Back");
-	BitmapManager::GetInstance()->InsertBitmap(L"../Image/Background/BackBuffer.bmp", L"BackBuffer");
+	BitmapManager::GetInstance()->InsertBmp(L"../Image/Background/Background.bmp", L"Back");
+	BitmapManager::GetInstance()->InsertBmp(L"../Image/Background/BackBuffer.bmp", L"BackBuffer");
 
 	_DC = GetDC(g_hWnd);
 
 	TimeManager::GetInstance()->Initialize();
-	SceneManager::GetInstance()->SceneChange(SceneManager::MAP);
+	SceneManager::GetInstance()->SceneChange(SceneManager::TEST);
 }
 
 void MainGame::Update()
@@ -43,7 +42,7 @@ void MainGame::LateUpdate()
 	ScrollManager::GetInstance()->ScrollLock();
 }
 
-void MainGame::Render(const FrameManager& frameManager)
+void MainGame::Render()
 {
 	HDC hMemDC = BitmapManager::GetInstance()->FindImage(L"Back");
 	HDC hBackBuffer = BitmapManager::GetInstance()->FindImage(L"BackBuffer");
@@ -53,8 +52,6 @@ void MainGame::Render(const FrameManager& frameManager)
 	SceneManager::GetInstance()->Render(hBackBuffer);
 	
 	BitBlt(_DC, 0, 0, WINCX, WINCY, hBackBuffer, 0, 0, SRCCOPY);
-
-	const_cast<FrameManager&>(frameManager).Render();
 }
 
 void MainGame::Release()

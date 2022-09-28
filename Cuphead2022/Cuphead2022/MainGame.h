@@ -16,7 +16,7 @@ public:
 	void Initialize();
 	void Update();
 	void LateUpdate();
-	void Render(const FrameManager& frameManager);
+	void Render();
 	void Release();
 
 private:

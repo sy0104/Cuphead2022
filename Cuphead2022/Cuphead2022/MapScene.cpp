@@ -15,7 +15,7 @@ MapScene::~MapScene()
 
 void MapScene::Initialize()
 {
-	BitmapManager::GetInstance()->InsertBitmap(L"../Image/Background/Map.bmp", L"Map");
+	BitmapManager::GetInstance()->InsertBmp(L"../Image/Background/Map.bmp", L"Map");
 }
 
 void MapScene::Update()

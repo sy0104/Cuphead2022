@@ -31,18 +31,18 @@ public:
 
 protected:
 	void UpdateRect();
-	virtual void FrameMove(const double& frameSped = 1.0);
+	virtual void FrameMove();
 
 protected:
 	INFO	_tInfo;
 	RECT	_tRect;
 	FRAME	_tFrame;
 
-	bool	_isDead;
-	float	_fAngle;
+	bool	_isDead = false;
+	float	_fAngle = 0.f;
 	float	_fSpeed;
 
-	TCHAR* _pFrameKey;
+	TCHAR*	_pFrameKey = nullptr;
 
 	GROUPID::ID		_eGroupID;
 };

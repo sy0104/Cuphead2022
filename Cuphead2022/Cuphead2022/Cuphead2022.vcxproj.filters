@@ -43,14 +43,17 @@
     <Filter Include="04. Manager\07. TimeManager">
       <UniqueIdentifier>{41a31064-ea50-4aab-b754-9563e2db5c87}</UniqueIdentifier>
     </Filter>
-    <Filter Include="04. Manager\08. FrameManager">
-      <UniqueIdentifier>{2aae8c9c-8431-4cb1-bc63-3f866f8d3d31}</UniqueIdentifier>
-    </Filter>
     <Filter Include="03. Scene\00. Logo">
       <UniqueIdentifier>{de222a1d-59f7-4957-9690-c92d0b2acce9}</UniqueIdentifier>
     </Filter>
     <Filter Include="03. Scene\01. Map">
       <UniqueIdentifier>{145bbb19-682a-4dbb-98e2-95f8681bda85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\99. Test">
+      <UniqueIdentifier>{e2062a9a-377f-4641-bfbe-b36dc71f8c50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Object\00. Player">
+      <UniqueIdentifier>{e3108f0b-fe19-4675-bc50-c57dcef970d7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -102,14 +105,17 @@
     <ClInclude Include="TimeManager.h">
       <Filter>04. Manager\07. TimeManager</Filter>
     </ClInclude>
-    <ClInclude Include="FrameManager.h">
-      <Filter>04. Manager\08. FrameManager</Filter>
-    </ClInclude>
     <ClInclude Include="Logo.h">
       <Filter>03. Scene\00. Logo</Filter>
     </ClInclude>
     <ClInclude Include="MapScene.h">
       <Filter>03. Scene\01. Map</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>03. Scene\99. Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>01. Object\00. Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -168,14 +174,17 @@
     <ClCompile Include="TimeManager.cpp">
       <Filter>04. Manager\07. TimeManager</Filter>
     </ClCompile>
-    <ClCompile Include="FrameManager.cpp">
-      <Filter>04. Manager\08. FrameManager</Filter>
-    </ClCompile>
     <ClCompile Include="Logo.cpp">
       <Filter>03. Scene\00. Logo</Filter>
     </ClCompile>
     <ClCompile Include="MapScene.cpp">
       <Filter>03. Scene\01. Map</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>03. Scene\99. Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>01. Object\00. Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -16,7 +16,7 @@ Logo::~Logo()
 
 void Logo::Initialize()
 {
-	BitmapManager::GetInstance()->InsertBitmap(L"../Image/Background/Logo.bmp", L"Logo");
+	BitmapManager::GetInstance()->InsertBmp(L"../Image/Background/Logo.bmp", L"Logo");
 }
 
 void Logo::Update()

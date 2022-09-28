@@ -4,7 +4,6 @@
 #include "stdafx.h"
 #include "Cuphead2022.h"
 #include "MainGame.h"
-#include "FrameManager.h"
 
 #define MAX_LOADSTRING 100
 
@@ -57,28 +56,26 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MainGame mainGame;
     mainGame.Initialize();
 
-    FrameManager tFrameManager;
-    tFrameManager.Initialize(60.0);
+    DWORD dwTime = GetTickCount64();
 
     srand(unsigned(time(NULL)));
 
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    while (msg.message != WM_QUIT)
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-            {
-                TranslateMessage(&msg);
-                DispatchMessage(&msg);
-            }
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
         }
 
-        if (tFrameManager.Lock())
+        if (dwTime + 10 < GetTickCount64())
         {
             mainGame.Update();
             mainGame.LateUpdate();
-            mainGame.Render(tFrameManager);
+            mainGame.Render();
+
+            dwTime = GetTickCount64();
         }
     }
 

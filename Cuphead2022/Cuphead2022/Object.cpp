@@ -4,6 +4,9 @@
 
 Object::Object()
 {
+	ZeroMemory(&_tInfo, sizeof(_tInfo));
+	ZeroMemory(&_tRect, sizeof(_tRect));
+	ZeroMemory(&_tFrame, sizeof(_tFrame));
 }
 
 Object::~Object()
@@ -18,11 +21,15 @@ void Object::UpdateRect()
 	_tRect.bottom = (LONG)(_tInfo.fY + (_tInfo.iCY >> 1));
 }
 
-void Object::FrameMove(const double& frameSpeed)
+void Object::FrameMove()
 {
-	_tFrame.dFrameStart += _tFrame.dFrameEnd * TimeManager::GetInstance()->GetDeltaTime() * frameSpeed;
+	if (_tFrame.dwFrameTime + _tFrame.dwFrameSpeed < GetTickCount64()) {
+		++_tFrame.iFrameStart;
 
-	if (_tFrame.dFrameStart >= _tFrame.dFrameEnd)
-		_tFrame.dFrameStart = 0.0;
+		if (_tFrame.iFrameStart > _tFrame.iFrameEnd)
+			_tFrame.iFrameStart = 0;
+
+		_tFrame.dwFrameTime = GetTickCount64();
+	}
 }
 

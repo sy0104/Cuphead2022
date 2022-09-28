@@ -13,9 +13,9 @@ typedef struct tagInfo
 
 typedef struct tagFrame
 {
-	double	dFrameStart;
-	double	dFrameEnd;
-	double	dFrameScene;
+	int		iFrameStart;
+	int		iFrameEnd;
+	int		iFrameScene;
 	DWORD	dwFrameSpeed;
 	DWORD	dwFrameTime;
 }FRAME;

@@ -150,7 +150,6 @@
     <ClInclude Include="BitmapManager.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Cuphead2022.h" />
-    <ClInclude Include="FrameManager.h" />
     <ClInclude Include="KeyManager.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MainGame.h" />
@@ -173,7 +172,6 @@
     <ClCompile Include="BitmapManager.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Cuphead2022.cpp" />
-    <ClCompile Include="FrameManager.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="MainGame.cpp" />
