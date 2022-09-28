@@ -20,12 +20,12 @@ private:
 	LARGE_INTEGER	_beginTime;
 	LARGE_INTEGER	_endTime;
 
-	double		_dDeltaTime;
-	double		_dSecondPerFrame;	// 1/60 薺做高擊 陛霞 滲熱
+	double		_dDeltaTime = 0.0;
+	double		_dSecondPerFrame = 0.0;	// 1/60 薺做高擊 陛霞 滲熱
 
-	int			_iFPS;
-	TCHAR		_szFPS[32];
-	double		_dFPSTime;
+	int			_iFPS = 0;
+	TCHAR		_szFPS[32] = L"";
+	double		_dFPSTime = 0.0;
 };
 
 

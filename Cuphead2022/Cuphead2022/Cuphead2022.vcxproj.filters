@@ -105,7 +105,12 @@
     <ClInclude Include="FrameManager.h">
       <Filter>04. Manager\08. FrameManager</Filter>
     </ClInclude>
-    <ClInclude Include="MapScene.h" />
+    <ClInclude Include="Logo.h">
+      <Filter>03. Scene\00. Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="MapScene.h">
+      <Filter>03. Scene\01. Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Cuphead2022.ico">
@@ -166,6 +171,11 @@
     <ClCompile Include="FrameManager.cpp">
       <Filter>04. Manager\08. FrameManager</Filter>
     </ClCompile>
-    <ClCompile Include="MapScene.cpp" />
+    <ClCompile Include="Logo.cpp">
+      <Filter>03. Scene\00. Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="MapScene.cpp">
+      <Filter>03. Scene\01. Map</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

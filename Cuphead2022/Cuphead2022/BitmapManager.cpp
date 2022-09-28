@@ -2,6 +2,8 @@
 #include "BitmapManager.h"
 #include "MyBitmap.h"
 
+IMPLEMENT_SINGLETON(BitmapManager);
+
 BitmapManager::BitmapManager()
 {
 }

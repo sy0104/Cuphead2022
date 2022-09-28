@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "SceneManager.h"
+#include "Logo.h"
 #include "MapScene.h"
 
 IMPLEMENT_SINGLETON(SceneManager);
@@ -42,6 +43,9 @@ void SceneManager::SceneChange(SCENEID eID)
 
 		switch (_eCurScene)
 		{
+		case LOGO:
+			_pScene = new Logo;
+			break;
 		case MAP:
 			_pScene = new MapScene;
 			break;
