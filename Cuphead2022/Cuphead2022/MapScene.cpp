@@ -15,6 +15,7 @@ MapScene::~MapScene()
 
 void MapScene::Initialize()
 {
+	BitmapManager::GetInstance()->InsertBitmap(L"../Image/Background/Map.bmp", L"Map");
 }
 
 void MapScene::Update()
@@ -32,11 +33,10 @@ void MapScene::Render(HDC dc)
 	int iScrollX = (int)ScrollManager::GetInstance()->GetScrollX();
 	int iScrollY = (int)ScrollManager::GetInstance()->GetScrollY();
 
-	//HDC hMemDC = BitmapManager::GetInstance()->FindImage(L"map");
-	//BitBlt(_DC, 0, 0, WINCX, WINCY, hMemDC, -iScrollX, -iScrollY, SRCCOPY);
+	HDC hMemDC = BitmapManager::GetInstance()->FindImage(L"Map");
+	//BitBlt(dc, 0, 0, WINCX, WINCY, hMemDC, -iScrollX, -iScrollY, SRCCOPY);
 
 	ObjectManager::GetInstance()->Render(dc);
-
 }
 
 void MapScene::Release()

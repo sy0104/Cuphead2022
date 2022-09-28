@@ -18,6 +18,9 @@ public:
 	void LateUpdate();
 	void Render(const FrameManager& frameManager);
 	void Release();
+
+private:
+	HDC		_DC;
 };
 
 

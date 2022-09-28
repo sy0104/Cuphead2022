@@ -4,6 +4,9 @@
 
 FrameManager::FrameManager()
 {
+	ZeroMemory(&_cpuTick, sizeof(LARGE_INTEGER));
+	ZeroMemory(&_beginTime, sizeof(LARGE_INTEGER));
+	ZeroMemory(&_endTime, sizeof(LARGE_INTEGER));
 }
 
 FrameManager::~FrameManager()
