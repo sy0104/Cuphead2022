@@ -44,4 +44,5 @@ void TestScene::Render(HDC dc)
 
 void TestScene::Release()
 {
+	ObjectManager::GetInstance()->DeleteID(OBJID::PLAYER);
 }

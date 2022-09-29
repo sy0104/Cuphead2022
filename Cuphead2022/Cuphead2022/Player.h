@@ -7,7 +7,8 @@ public:
 	virtual ~Player();
 
 public:
-	enum STATE { IDLE, WALK, STATE_END };
+	enum STATE { INTRO, IDLE, RUN, AIM_STRAIGHT, AIM_UP, AIM_DOWN, AIM_DIAUP, AIM_DIADOWN,
+				 JUMP, PARRY, SHOOT, HIT, DEATH, GHOST, STATE_END };
 	enum DIR { LEFT, RIGHT, UP, DOWN, DIR_END };
 
 public:
@@ -25,6 +26,10 @@ private:
 	STATE	_ePreScene = STATE::IDLE;
 	STATE	_eCurScene = STATE::IDLE;
 	DIR		_eDir = DIR::RIGHT;
+
+	bool	_isAim = false;
+	bool	_isMove = false;
+	bool	_isJump = false;
 
 };
 
