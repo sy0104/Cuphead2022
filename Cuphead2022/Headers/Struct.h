@@ -16,6 +16,8 @@ typedef struct tagFrame
 	int		iFrameStart;
 	int		iFrameEnd;
 	int		iFrameScene;
+	int		iBmpCX;
+	int		iBmpCY;
 	DWORD	dwFrameSpeed;
 	DWORD	dwFrameTime;
 }FRAME;

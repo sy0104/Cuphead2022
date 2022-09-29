@@ -29,7 +29,9 @@ void Player::Initialize()
     _tFrame.iFrameStart = 0;
     _tFrame.iFrameEnd = 7;
     _tFrame.iFrameScene = 0;
-    _tFrame.dwFrameSpeed = 80;
+    _tFrame.iBmpCX = 100;
+    _tFrame.iBmpCY = 155;
+    _tFrame.dwFrameSpeed = 70;
     _tFrame.dwFrameTime = GetTickCount64();
     _pFrameKey = (TCHAR*)(L"Player_Idle");
 
@@ -65,8 +67,8 @@ void Player::Render(HDC dc)
             , _tRect.left, _tRect.top
             , _tInfo.iCX, _tInfo.iCY
             , hMemDC
-            , _tFrame.iFrameStart * 100, _tFrame.iFrameScene * 155
-            , 100, 155
+            , _tFrame.iFrameStart * _tFrame.iBmpCX, _tFrame.iFrameScene * _tFrame.iBmpCY
+            , _tFrame.iBmpCX, _tFrame.iBmpCY
             , RGB(70, 70, 70));
     }
 
@@ -74,10 +76,10 @@ void Player::Render(HDC dc)
     {
         StretchBlt(hStretch
             , 0, 0
-            , 100, 155
+            , _tFrame.iBmpCX, _tFrame.iBmpCY
             , hMemDC
-            , _tFrame.iFrameStart * 100 + 100, _tFrame.iFrameScene * 155
-            , -100, 155
+            , _tFrame.iFrameStart * _tFrame.iBmpCX + _tFrame.iBmpCX, _tFrame.iFrameScene * _tFrame.iBmpCY
+            , -_tFrame.iBmpCX, _tFrame.iBmpCY
             , SRCCOPY);
 
         GdiTransparentBlt(dc
@@ -85,7 +87,7 @@ void Player::Render(HDC dc)
             , _tInfo.iCX, _tInfo.iCY
             , hStretch
             , 0, 0
-            , 100, 155
+            , _tFrame.iBmpCX, _tFrame.iBmpCY
             , RGB(70, 70, 70));
 
     }
@@ -109,7 +111,9 @@ void Player::SceneChange()
             _tFrame.iFrameStart = 0;
             _tFrame.iFrameEnd = 7;
             _tFrame.iFrameScene = 0;
-            _tFrame.dwFrameSpeed = 100;
+            _tFrame.dwFrameSpeed = 70;
+            _tFrame.iBmpCX = 100;
+            _tFrame.iBmpCY = 155;
             break;
         case STATE::WALK:
 
