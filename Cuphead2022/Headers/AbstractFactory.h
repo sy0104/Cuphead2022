@@ -6,7 +6,7 @@
 class Object;
 
 template <typename T>
-class CAbstractFactory
+class AbstractFactory
 {
 public:
 	static Object* Create()

@@ -2,6 +2,8 @@
 #include "Player.h"
 #include "BitmapManager.h"
 #include "KeyManager.h"
+#include "ObjectManager.h"
+#include "Effect.h"
 
 Player::Player()
 {
@@ -15,27 +17,29 @@ Player::~Player()
 void Player::Initialize()
 {
 #pragma region InsertImage
+    BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Intro.bmp", L"Player_Intro");
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Idle.bmp", L"Player_Idle");
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Run_Normal.bmp", L"Player_Run");
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Aim_Straight.bmp", L"Player_AimStraight");
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Aim_Up.bmp", L"Player_AimUp");
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Aim_Down.bmp", L"Player_AimDown");
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Stretch.bmp", L"Stretch");
+    BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Jump.bmp", L"Player_Jump");
 #pragma endregion
 
     _tInfo.fX = 200.f;
     _tInfo.fY = 550.f;
-    _tInfo.iCX = 100;
-    _tInfo.iCY = 155;
+    _tInfo.iCX = 149;
+    _tInfo.iCY = 166;
 
     _fSpeed = 6.f;
 
     _tFrame.iFrameStart = 0;
-    _tFrame.iFrameEnd = 7;
+    _tFrame.iFrameEnd = 27;
     _tFrame.iFrameScene = 0;
     _tFrame.dwFrameSpeed = 70;
     _tFrame.dwFrameTime = GetTickCount64();
-    _pFrameKey = (TCHAR*)(L"Player_Idle");
+    _pFrameKey = (TCHAR*)(L"Player_Intro");
 
     _eGroupID = GROUPID::OBJECT;
 }
@@ -45,6 +49,7 @@ int Player::Update()
     if (_isDead) return OBJ_DEAD;
 
     KeyCheck();
+    Jumping();
     SceneChange();
     FrameMove();
     UpdateRect();
@@ -97,8 +102,27 @@ void Player::Release()
 {
 }
 
+void Player::FrameMove()
+{
+    if (_tFrame.dwFrameTime + _tFrame.dwFrameSpeed < GetTickCount64()) {
+        ++_tFrame.iFrameStart;
+
+        if (_tFrame.iFrameStart > _tFrame.iFrameEnd) {
+            if (_eCurScene == INTRO) {
+                _eCurScene = IDLE;
+                _isIntro = true;
+            }
+            _tFrame.iFrameStart = 0;
+        }
+
+        _tFrame.dwFrameTime = GetTickCount64();
+    }
+}
+
 void Player::KeyCheck()
 {
+    if (!_isIntro) return;
+
     // 이동
     if (KeyManager::GetInstance()->KeyPressing(VK_RIGHT) && !_isAim && !_isJump) {
         _isMove = true;
@@ -152,6 +176,31 @@ void Player::KeyCheck()
     else if (!_isMove && !_isAim && !_isJump) _eCurScene = STATE::IDLE;
 }
 
+void Player::Jumping()
+{
+    if (!_isJump) return;
+
+    // 자연스러운 점프로 수정 필요
+    _fJumpSpeed = _fJumpPower * _fJumpTime - 9.8f * _fJumpTime * _fJumpTime * 0.5f;
+    if (_fJumpSpeed < -15.f) _fJumpSpeed = -15.f;
+
+    _tInfo.fY -= _fJumpSpeed;
+    _fJumpTime += 0.2f;
+
+    if (_tInfo.fY > 550.f + (_tInfo.iCY >> 1)) {
+        if (_isJump) {
+            Object* jumpDust = new Effect(_tInfo.fX, _tInfo.fY, Effect::JUMPDUST);
+            ObjectManager::GetInstance()->AddObject(OBJID::EFFECT, jumpDust);
+            _isJump = false;
+        }
+
+        _tInfo.fY = 550.f;
+        _fJumpTime = 0.f;
+        _fJumpSpeed = 0.f;
+        _eCurScene = IDLE;
+    }
+}
+
 void Player::SceneChange()
 {
     if (_ePreScene != _eCurScene)
@@ -175,6 +224,15 @@ void Player::SceneChange()
             _tFrame.iFrameScene = 0;
             _tFrame.dwFrameSpeed = 50;
             _pFrameKey = (TCHAR*)(L"Player_Run");
+            break;
+        case STATE::JUMP:
+            _tInfo.iCX = 88;
+            _tInfo.iCY = 109;
+            _tFrame.iFrameStart = 0;
+            _tFrame.iFrameEnd = 7;
+            _tFrame.iFrameScene = 0;
+            _tFrame.dwFrameSpeed = 50;
+            _pFrameKey = (TCHAR*)(L"Player_Jump");
             break;
         case STATE::AIM_STRAIGHT:
             _tInfo.iCX = 134;
@@ -207,9 +265,6 @@ void Player::SceneChange()
 
             break;
         case STATE::AIM_DIADOWN:
-
-            break;
-        case STATE::JUMP:
 
             break;
         }

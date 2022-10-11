@@ -12,6 +12,7 @@ SceneManager::SceneManager()
 
 SceneManager::~SceneManager()
 {
+	Release();
 }
 
 void SceneManager::Update()
@@ -57,5 +58,4 @@ void SceneManager::SceneChange(SCENEID eID)
 		_pScene->Initialize();
 		_ePreScene = _eCurScene;
 	}
-
 }

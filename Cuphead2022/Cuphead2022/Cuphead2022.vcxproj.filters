@@ -55,6 +55,18 @@
     <Filter Include="01. Object\00. Player">
       <UniqueIdentifier>{e3108f0b-fe19-4675-bc50-c57dcef970d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Object\01. Boss">
+      <UniqueIdentifier>{73465d99-1e66-4719-8056-ea3fe0159d5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Object\02. Bullet">
+      <UniqueIdentifier>{786ad807-bb11-4c9f-a6f6-34ed016f17ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Object\03. Effect">
+      <UniqueIdentifier>{d6227d1b-cdb3-436a-abad-ff492b25e13c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Object\03. Effect\00. JumpDust">
+      <UniqueIdentifier>{d8a435f9-53ef-48dd-af60-b813d717bdcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cuphead2022.h">
@@ -116,6 +128,12 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>01. Object\00. Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>01. Object\03. Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpDust.h">
+      <Filter>01. Object\03. Effect\00. JumpDust</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +203,12 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>01. Object\00. Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>01. Object\03. Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpDust.cpp">
+      <Filter>01. Object\03. Effect\00. JumpDust</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -53,7 +53,7 @@ void ObjectManager::LateUpdate()
 				break;
 			}
 
-			GROUPID::ID      eID = pObj->GetGroupID();
+			GROUPID::ID eID = pObj->GetGroupID();
 			_listRender[eID].emplace_back(pObj);
 		}
 	}

@@ -20,7 +20,7 @@ void TestScene::Initialize()
 	BitmapManager::GetInstance()->InsertBmp(L"../Image/Background/TestScene.bmp", L"TestScene");
 
 	// °´Ã¼ »ý¼º
-	_pPlayer = CAbstractFactory<Player>::Create();
+	_pPlayer = AbstractFactory<Player>::Create();
 	ObjectManager::GetInstance()->AddObject(OBJID::PLAYER, _pPlayer);
 }
 
