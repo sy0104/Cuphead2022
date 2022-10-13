@@ -4,6 +4,7 @@
 #include "KeyManager.h"
 #include "ObjectManager.h"
 #include "Effect.h"
+#include "JumpDust.h"
 
 Player::Player()
 {
@@ -124,18 +125,22 @@ void Player::KeyCheck()
     if (!_isIntro) return;
 
     // ÀÌµ¿
-    if (KeyManager::GetInstance()->KeyPressing(VK_RIGHT) && !_isAim && !_isJump) {
+    if (KeyManager::GetInstance()->KeyPressing(VK_RIGHT) && !_isAim/* && !_isJump*/) {
         _isMove = true;
-        _eCurScene = STATE::RUN;
-        _eDir = DIR::RIGHT;
         _tInfo.fX += _fSpeed;
+        if (!_isJump) {
+            _eCurScene = STATE::RUN;
+            _eDir = DIR::RIGHT;
+        }
     }
 
-    else if (KeyManager::GetInstance()->KeyPressing(VK_LEFT) && !_isAim && !_isJump) {
+    else if (KeyManager::GetInstance()->KeyPressing(VK_LEFT) && !_isAim/* && !_isJump*/) {
         _isMove = true;
-        _eCurScene = STATE::RUN;
-        _eDir = DIR::LEFT;
         _tInfo.fX -= _fSpeed;
+        if (!_isJump) {
+            _eCurScene = STATE::RUN;
+            _eDir = DIR::LEFT;
+        }
     }
 
     else if (KeyManager::GetInstance()->KeyUp(VK_RIGHT) || KeyManager::GetInstance()->KeyUp(VK_LEFT))
@@ -189,7 +194,7 @@ void Player::Jumping()
 
     if (_tInfo.fY > 550.f + (_tInfo.iCY >> 1)) {
         if (_isJump) {
-            Object* jumpDust = new Effect(_tInfo.fX, _tInfo.fY, Effect::JUMPDUST);
+            Object* jumpDust = AbstractFactory<JumpDust>::Create(_tInfo.fX, _tInfo.fY);
             ObjectManager::GetInstance()->AddObject(OBJID::EFFECT, jumpDust);
             _isJump = false;
         }
@@ -233,6 +238,15 @@ void Player::SceneChange()
             _tFrame.iFrameScene = 0;
             _tFrame.dwFrameSpeed = 50;
             _pFrameKey = (TCHAR*)(L"Player_Jump");
+            break;
+        case STATE::DUCK:
+            _tInfo.iCX = 88;
+            _tInfo.iCY = 109;
+            _tFrame.iFrameStart = 0;
+            _tFrame.iFrameEnd = 7;
+            _tFrame.iFrameScene = 0;
+            _tFrame.dwFrameSpeed = 50;
+            _pFrameKey = (TCHAR*)(L"Player_Duck");
             break;
         case STATE::AIM_STRAIGHT:
             _tInfo.iCX = 134;

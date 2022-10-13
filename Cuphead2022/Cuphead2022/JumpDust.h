@@ -1,6 +1,6 @@
 #pragma once
-#include "Effect.h"
-class JumpDust : public Effect
+#include "Object.h"
+class JumpDust : public Object
 {
 public:
 	JumpDust();
@@ -12,5 +12,6 @@ public:
 	virtual void LateUpdate() override;
 	virtual void Render(HDC dc) override;
 	virtual void Release() override;
+	virtual void FrameMove() override;
 };
 

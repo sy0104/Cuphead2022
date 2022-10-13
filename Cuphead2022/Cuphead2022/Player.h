@@ -7,7 +7,7 @@ public:
 	virtual ~Player();
 
 public:
-	enum STATE { INTRO, IDLE, RUN, JUMP,	// 기본 동작
+	enum STATE { INTRO, IDLE, RUN, JUMP, DUCK,	// 기본 동작
 				AIM_STRAIGHT, AIM_UP, AIM_DOWN, AIM_DIAUP, AIM_DIADOWN,		// 에임
 				PARRY, SHOOT, HIT, DEATH, GHOST,	// 공격, 피격
 				STATE_END };

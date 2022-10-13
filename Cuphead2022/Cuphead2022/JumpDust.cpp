@@ -21,10 +21,10 @@ void JumpDust::Initialize()
     _tFrame.iFrameStart = 0;
     _tFrame.iFrameEnd = 13;
     _tFrame.iFrameScene = 0;
-    _tFrame.dwFrameSpeed = 70;
+    _tFrame.dwFrameSpeed = 20;
     _tFrame.dwFrameTime = GetTickCount64();
     _pFrameKey = (TCHAR*)(L"Player_JumpDust");
-
+    _eGroupID = GROUPID::EFFECT;
 }
 
 int JumpDust::Update()
@@ -58,4 +58,16 @@ void JumpDust::Render(HDC dc)
 
 void JumpDust::Release()
 {
+}
+
+void JumpDust::FrameMove()
+{
+    if (_tFrame.dwFrameTime + _tFrame.dwFrameSpeed < GetTickCount64()) {
+        ++_tFrame.iFrameStart;
+
+        if (_tFrame.iFrameStart > _tFrame.iFrameEnd)
+            _isDead = true;
+
+        _tFrame.dwFrameTime = GetTickCount64();
+    }
 }
