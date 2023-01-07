@@ -117,7 +117,11 @@ void Player::FrameMove()
                 _isIntro = true;
             }
 
-            else if (_eCurScene == )
+            else if (_eCurScene == DUCK) _eCurScene = DUCKIDLE;
+            if (_eCurScene == DUCKIDLE)
+            {
+                int a = 0;
+            }
 
             _tFrame.iFrameStart = 0;
         }
@@ -188,7 +192,7 @@ void Player::KeyCheck()
 
     // Duck
     if (KeyManager::GetInstance()->KeyPressing(VK_DOWN) && !_isMove && !_isAim && !_isJump) {
-        _eCurScene = STATE::DUCK;
+        if (_eCurScene == IDLE) _eCurScene = STATE::DUCKIDLE;
     }
 }
 
@@ -251,10 +255,10 @@ void Player::SceneChange()
             _pFrameKey = (TCHAR*)(L"Player_Jump");
             break;
         case STATE::DUCK:
-            _tInfo.iCX = 88;
-            _tInfo.iCY = 109;
+            _tInfo.iCX = 167;
+            _tInfo.iCY = 122;
             _tFrame.iFrameStart = 0;
-            _tFrame.iFrameEnd = 7;
+            _tFrame.iFrameEnd = 6;
             _tFrame.iFrameScene = 0;
             _tFrame.dwFrameSpeed = 50;
             _pFrameKey = (TCHAR*)(L"Player_Duck");
@@ -263,7 +267,7 @@ void Player::SceneChange()
             _tInfo.iCX = 164;
             _tInfo.iCY = 80;
             _tFrame.iFrameStart = 0;
-            _tFrame.iFrameEnd = 5;
+            _tFrame.iFrameEnd = 4;
             _tFrame.iFrameScene = 0;
             _tFrame.dwFrameSpeed = 50;
             _pFrameKey = (TCHAR*)(L"Player_DuckIdle");
@@ -272,7 +276,7 @@ void Player::SceneChange()
             _tInfo.iCX = 178;
             _tInfo.iCY = 81;
             _tFrame.iFrameStart = 0;
-            _tFrame.iFrameEnd = 5;
+            _tFrame.iFrameEnd = 4;
             _tFrame.iFrameScene = 0;
             _tFrame.dwFrameSpeed = 50;
             _pFrameKey = (TCHAR*)(L"Player_DuckShoot");

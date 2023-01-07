@@ -14,7 +14,7 @@ private:
 	~SceneManager();
 
 public:
-	enum SCENEID { LOGO, MAP, TEST, END };
+	enum SCENEID { LOGO, MAP, STAGE1, TEST, END };
 
 public:
 	void Update();

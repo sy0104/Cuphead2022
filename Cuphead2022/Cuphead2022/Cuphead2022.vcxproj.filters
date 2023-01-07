@@ -67,6 +67,9 @@
     <Filter Include="01. Object\03. Effect\00. JumpDust">
       <UniqueIdentifier>{d8a435f9-53ef-48dd-af60-b813d717bdcc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03. Scene\02. Stage1">
+      <UniqueIdentifier>{af77356c-d092-4b99-84cb-01ed35f2606d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cuphead2022.h">
@@ -134,6 +137,9 @@
     </ClInclude>
     <ClInclude Include="JumpDust.h">
       <Filter>01. Object\03. Effect\00. JumpDust</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>03. Scene\02. Stage1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +215,9 @@
     </ClCompile>
     <ClCompile Include="JumpDust.cpp">
       <Filter>01. Object\03. Effect\00. JumpDust</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>03. Scene\02. Stage1</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "SceneManager.h"
 #include "Logo.h"
 #include "MapScene.h"
+#include "Stage1.h"
 #include "TestScene.h"
 
 IMPLEMENT_SINGLETON(SceneManager);
@@ -50,6 +51,9 @@ void SceneManager::SceneChange(SCENEID eID)
 			break;
 		case MAP:
 			_pScene = new MapScene;
+			break;
+		case STAGE1:
+			_pScene = new Stage1;
 			break;
 		case TEST:
 			_pScene = new TestScene;
