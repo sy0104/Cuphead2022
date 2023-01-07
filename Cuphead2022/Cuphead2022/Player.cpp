@@ -26,6 +26,9 @@ void Player::Initialize()
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Aim_Down.bmp", L"Player_AimDown");
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Stretch.bmp", L"Stretch");
     BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Jump.bmp", L"Player_Jump");
+    BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Duck.bmp", L"Player_Duck");
+    BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Duck_Idle.bmp", L"Player_DuckIdle");
+    BitmapManager::GetInstance()->InsertBmp(L"../Image/Cuphead/Duck_Shoot.bmp", L"Player_DuckShoot");
 #pragma endregion
 
     _tInfo.fX = 200.f;
@@ -113,6 +116,9 @@ void Player::FrameMove()
                 _eCurScene = IDLE;
                 _isIntro = true;
             }
+
+            else if (_eCurScene == )
+
             _tFrame.iFrameStart = 0;
         }
 
@@ -179,6 +185,11 @@ void Player::KeyCheck()
     }
 
     else if (!_isMove && !_isAim && !_isJump) _eCurScene = STATE::IDLE;
+
+    // Duck
+    if (KeyManager::GetInstance()->KeyPressing(VK_DOWN) && !_isMove && !_isAim && !_isJump) {
+        _eCurScene = STATE::DUCK;
+    }
 }
 
 void Player::Jumping()
@@ -247,6 +258,24 @@ void Player::SceneChange()
             _tFrame.iFrameScene = 0;
             _tFrame.dwFrameSpeed = 50;
             _pFrameKey = (TCHAR*)(L"Player_Duck");
+            break;
+        case STATE::DUCKIDLE:
+            _tInfo.iCX = 164;
+            _tInfo.iCY = 80;
+            _tFrame.iFrameStart = 0;
+            _tFrame.iFrameEnd = 5;
+            _tFrame.iFrameScene = 0;
+            _tFrame.dwFrameSpeed = 50;
+            _pFrameKey = (TCHAR*)(L"Player_DuckIdle");
+            break;
+        case STATE::DUCKSHOOT:
+            _tInfo.iCX = 178;
+            _tInfo.iCY = 81;
+            _tFrame.iFrameStart = 0;
+            _tFrame.iFrameEnd = 5;
+            _tFrame.iFrameScene = 0;
+            _tFrame.dwFrameSpeed = 50;
+            _pFrameKey = (TCHAR*)(L"Player_DuckShoot");
             break;
         case STATE::AIM_STRAIGHT:
             _tInfo.iCX = 134;
